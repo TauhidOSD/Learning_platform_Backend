@@ -11,7 +11,7 @@ const app = express();
 
 
 app.use(cors({ 
-  origin: "https://learning-platform-frontend-omega.vercel.app/", 
+  origin: "https://learning-platform-frontend-omega.vercel.app", 
   credentials: true 
 }));
 app.use(express.json({ limit: "1mb" }));
