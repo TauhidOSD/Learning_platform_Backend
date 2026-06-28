@@ -9,8 +9,11 @@ import { notFound, errorHandler } from "./middleware/errorHandler";
 
 const app = express();
 
-// 🛠️ সাময়িকভাবে সব ডোমেন (origin: true) অ্যালাউ করে দেওয়া হলো যাতে লাইভে কোনো CORS ব্লক না খায়
-app.use(cors({ origin: true, credentials: true }));
+
+app.use(cors({ 
+  origin: "https://learning-platform-frontend-yourname.vercel.app", 
+  credentials: true 
+}));
 app.use(express.json({ limit: "1mb" }));
 
 // Basic abuse protection on auth + AI endpoints (cost/security sensitive)
