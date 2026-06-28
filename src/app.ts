@@ -16,6 +16,17 @@ app.use(express.json({ limit: "1mb" }));
 const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 50 });
 const aiLimiter = rateLimit({ windowMs: 60 * 1000, max: 20 });
 
+// -------------------------------------------------------------
+// Vercel বা ব্রাউজার থেকে সরাসরি ঢুকলে যেন Route Not Found না দেখায়
+app.get("/", (_req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Welcome to the E-Learning Platform API Server!",
+    status: "Healthy & Running"
+  });
+});
+// -------------------------------------------------------------
+
 app.use("/api/auth", authLimiter, authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/ai", aiLimiter, aiRoutes);

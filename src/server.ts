@@ -9,13 +9,6 @@ import { connectDB } from "./config/db";
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Welcome to the E-Learning Platform API Server!",
-    status: "Healthy & Running"
-  });
-});
 
 const start = async () => {
   try {
